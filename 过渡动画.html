@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				padding: 0;
+				margin: 0;
+			}
+			#div1{
+				width: 200px;
+				height: 200px;
+				background-color: wheat;
+				/*设置动画 property*/
+				/*transition-property:all ;
+				/*动画时间*/
+				/*transition-duration: 3s;*/
+				/*动画速率  移动位置相关*/
+				/*transition-timing-function: linear;*/
+				/*动画延迟时间  delay*/
+				/*transition-delay: 1s;*/
+				transition:all 2s 1s linear;/*(动画时间,延迟时间)*/
+				
+			}
+			/*触发过渡动画*/
+			#div1:hover{
+				background-color: aquamarine;
+				width: 300px;
+				height: 300px;
+			}
+			/*------------------------------------------------*/
+			#input1{
+				width: 150px;
+				height: 40px;
+				margin-left: 50px;
+				transition: all 1s 1s linear;
+			}
+			/*获取焦点*/
+			#input1:hover{
+				width: 1000px;
+			}
+			/*-------------------------------*/
+			/*:checked 伪类选择器*/
+			#check1{
+				margin-left: 25px;
+				margin-top: 25px;
+				transition: all 2s ease;
+			}
+			#check1:checked{
+				margin: 100px 0 0 100px;
+			}
+			/*----------------------*/
+			#div2{
+				width: 222px;
+				height: 333px;
+				background-color: aquamarine;
+				transition:all 3s 1s linear;
+			}
+			@media only screen and (max-width:555px ) {
+				#div2{
+					background-color: salmon;
+					width: 400px;
+				}
+			}
+		</style>
+	</head>
+	<body>
+<!--
+	过渡动画   transition;
+	注意:过渡动画需要触发时机,才能触发动画的执行过程!
+	1.:hover  获取鼠标滑入标签上的状态
+	2.:focus  焦点获取,比如点击输入框
+	3.:checked 选中某一个选项框
+	4.媒介查询
+	5.通过js触发
+	
+	transition的复合写法: 
+	transition:值1  值2  值3
+	但是,系统永远把识别到的第一个秒数当做动画时间,第二个秒数当做动画的延迟时间
+-->
+<!--测试hover-->
+    <div id="div1">国破山河在,城春草木深 </div>
+<!--测试焦点伪类选择器 :focus-->
+<input type="text" name="input1" id="input1" value="" /><br />
+<!--测试:checked伪类选择器-->
+<input type="checkbox" name="check1" id="check1" value="" /><span>选我选我</span>
+<!--测试,媒介查询-->
+<div id="div2"></div>
+
+		<!--与过渡动画有关的css样式:
+		1. 要进行动画的css样式(transition-property) 如果改变多个样式, 
+		中间用空格隔开, 或者直接用all代替
+		2. 动画的执行时间(transition-duration) 单位:s (秒)
+		3. 动画的运动速率(transition-timing-function)
+			a.ease 默认值 规定慢速开始，然后变快，然后慢速结束的过渡效果
+			（cubic-bezier(0.25,0.1,0.25,1)）
+			b.ease-in 规定以慢速开始的过渡效果（等于 cubic-bezier(0.42,0,1,1)）
+			c.ease-out 规定以慢速结束的过渡效果（等于 cubic-bezier(0,0,0.58,1)）
+			d.ease-in-out 规定以慢速开始和结束的过渡效果（等于 cubic-bezier(0.42,0,0.58,1)）
+			e.linear 规定以相同速度开始至结束的过渡效果（等于 cubic-bezier(0,0,1,1)）
+			f.贝塞尔曲线 cubic-bezier(x1, y1, x2, y2)
+		4.动画的延迟时间 (transition-delay) 单位: s(秒)
+		-->
+
+
+
+</body>
+</html>
